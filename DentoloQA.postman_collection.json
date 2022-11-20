@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "08f1c8f8-b025-4e46-8052-e9ee4dfed654",
+		"name": "DentoloQA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10404771"
+	},
+	"item": [
+		{
+			"name": "RequestTest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Defining the Case that is verified here",
+							"if(pm.response.code==200){",
+							"        var state=\"Valid Credentials\"",
+							"    }",
+							"        else if(pm.response.code==404){",
+							"        var state=\"Invalid Credentials\"",
+							"    }",
+							"    else{",
+							"       var state=\"Bad Request\"",
+							"    }",
+							"//====================================================",
+							"pm.test(\"TEST: \"+state, function () {",
+							"    if(pm.response.code==200){",
+							"         pm.expect(pm.response.text()).to.include(\"success\");",
+							"         console.log(\"Valid Credentials\");",
+							"    }",
+							"    ",
+							"        else if(pm.response.code==404){",
+							"         pm.expect(pm.response.text()).to.include(\"fail\");",
+							"         console.log(\"Invalid Credentials\");",
+							"    }",
+							"    else{",
+							"        console.log(\"Bad Request\");",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "275082ed-7dd0-4701-bfc4-86144adb313e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{email}}\",\n    \"contract_key\": \"{{contract_key}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://beta7.dentolo-test.de/api/petolo/v1/fressnapf/validate_contract",
+					"protocol": "https",
+					"host": [
+						"beta7",
+						"dentolo-test",
+						"de"
+					],
+					"path": [
+						"api",
+						"petolo",
+						"v1",
+						"fressnapf",
+						"validate_contract"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
