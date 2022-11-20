@@ -1,6 +1,6 @@
 # detoloQA
 ## 1- Research & Testcases preparation
-This part can found in the Wiki section under the link ().
+This part can found in the Wiki section under the link ([Test Cases](https://github.com/ymmostafa/detoloQA/wiki/Research-&-Testcases-preparation)).
 ## 2- API Test
 This part is divided into 3 sub-points
 
